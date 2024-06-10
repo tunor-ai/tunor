@@ -28,13 +28,12 @@ def create_ui(demo_mode: bool = False) -> gr.Blocks:
             gr.DuplicateButton(value="Duplicate Space for private use", elem_classes="duplicate-button")
 
         # Adding a welcome message with instructions
-        gr.HTML("<h2>Welcome to the Tunor.AI's Easy Fine-Tuning Platform</h2>")
+        gr.HTML("<h2>Welcome to Tunor AI's Fine-Tuning Platform</h2>")
         gr.HTML("<p>Follow the steps below to fine-tune your model easily:</p>")
 
         engine.manager.add_elems("top", create_top())
         lang: "gr.Dropdown" = engine.manager.get_elem_by_id("top.lang")
 
-        # Simplifying the tabs and adding tooltips
         with gr.Tab("Fine-Tune Model"):
             gr.Markdown("### Step 1: Upload Your Dataset")
             gr.HTML("<p>Drag and drop your dataset file here:</p>")

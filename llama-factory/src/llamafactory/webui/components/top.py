@@ -18,16 +18,16 @@ if TYPE_CHECKING:
 def create_top() -> Dict[str, "Component"]:
     available_models = list(SUPPORTED_MODELS.keys()) + ["Custom"]
 
-    with gr.Row():
-        lang = gr.Dropdown(choices=["en", "ru", "zh"], scale=1)
-        model_name = gr.Dropdown(choices=available_models, scale=3)
-        model_path = gr.Textbox(scale=3)
-
-    with gr.Row():
-        finetuning_type = gr.Dropdown(choices=METHODS, value="lora", scale=1)
-        checkpoint_path = gr.Dropdown(multiselect=True, allow_custom_value=True, scale=6)
-
     with gr.Accordion(open=False) as advanced_tab:
+        with gr.Row():
+            lang = gr.Dropdown(choices=["en", "ru", "zh"], scale=1)
+            model_name = gr.Dropdown(choices=available_models, scale=3)
+            model_path = gr.Textbox(scale=3)
+
+        with gr.Row():
+            finetuning_type = gr.Dropdown(choices=METHODS, value="lora", scale=1)
+            checkpoint_path = gr.Dropdown(multiselect=True, allow_custom_value=True, scale=6)
+            
         with gr.Row():
             quantization_bit = gr.Dropdown(choices=["none", "8", "4"], value="none", scale=2)
             template = gr.Dropdown(choices=list(TEMPLATES.keys()), value="default", scale=2)
