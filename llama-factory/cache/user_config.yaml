@@ -1,0 +1,4 @@
+cache_dir: null
+lang: en
+last_model: LLaMA2-7B
+path_dict: {}
